@@ -28,7 +28,7 @@ def play(path):
     cmd = ['aplay', path]
     subprocess.call(cmd)
 
-def main(text, path):
+def jtalk(text, path):
     path = create_wave(text, path)
     play(path)
 
@@ -40,4 +40,4 @@ if __name__ == '__main__':
             help='作成する音声ファイルへのパス')
     args = vars(ap.parse_args())
 
-    main(args['text'], args['path'])
+    jtalk(args['text'], args['path'])
