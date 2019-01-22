@@ -28,7 +28,7 @@ def play(path):
     cmd = ['aplay', path]
     subprocess.call(cmd)
 
-def jtalk(text, path):
+def jtalk(text, path='/tmp/jtalk.wav'):
     path = create_wave(text, path)
     play(path)
 
