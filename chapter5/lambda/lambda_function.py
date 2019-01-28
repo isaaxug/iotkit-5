@@ -29,7 +29,7 @@ def lambda_handler(event, context):
 
 def _get_text(button):
     if button == 'Back':
-        text = '変更されました'
+        text = 'おはよう'
     elif button == 'A':
         text = 'こんにちは'
     elif button == 'B':
