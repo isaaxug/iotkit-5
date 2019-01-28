@@ -1,0 +1,44 @@
+import json
+import boto3
+from datetime import datetime
+
+iot = boto3.client('iot-data')
+ 
+def lambda_handler(event, context):
+    topic = 'speaker/voice-kit/say'
+    payload = {
+        'text': _get_text(event['name'])
+    }
+    try:
+        iot.publish(
+            topic=topic,
+            qos=0,
+            payload=json.dumps(payload, ensure_ascii=False)
+        )
+ 
+        return {
+            'statusCode': 200,
+            'body': 'Succeeded.'
+        }
+    
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'body': 'Failed.'
+        }
+
+def _get_text(button):
+    if button == 'Back':
+        text = '変更されました'
+    elif button == 'A':
+        text = 'こんにちは'
+    elif button == 'B':
+        text = 'こんばんは'
+    elif button == 'C':
+        text = 'IoT'
+    elif button == 'D':
+        text = 'エンジニア'
+    else:
+        text = '養成キット'
+        
+    return text
