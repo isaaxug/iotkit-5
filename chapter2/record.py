@@ -6,7 +6,7 @@ def wait():
     time.sleep(3)
 
 def main():
-    print('Start recording...')
+    print('Start recording for 3 seconds...')
     audio.record_file(audio.AudioFormat.CD,
                       filename='sample.wav',
                       wait=wait,
