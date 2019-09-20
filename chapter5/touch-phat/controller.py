@@ -28,7 +28,7 @@ client.configureMQTTOperationTimeout(10)
 
 @touchphat.on_release(['Back', 'A', 'B', 'C', 'D', 'Enter'])
 def handle_touch(event):
-    payload = {"name": event.name}
+    payload = {"event": event.name}
     client.publish(
         topic='button/'+args.name+'/event',
         payload=json.dumps(payload),
