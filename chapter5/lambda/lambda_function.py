@@ -7,7 +7,7 @@ iot = boto3.client('iot-data')
 def lambda_handler(event, context):
     topic = 'speaker/voice-kit/say'
     payload = {
-        'text': _get_text(event['name'])
+        'text': _get_text(event['event'])
     }
     try:
         iot.publish(
