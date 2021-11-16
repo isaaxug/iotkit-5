@@ -37,8 +37,8 @@ def _get_text(button):
     elif button == 'C':
         text = 'IoT'
     elif button == 'D':
-        text = 'エンジニア'
+        text = 'プログラミング'
     else:
-        text = '養成キット'
+        text = 'ものづくり'
         
     return text
