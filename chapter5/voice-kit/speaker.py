@@ -31,6 +31,8 @@ def say(client, userdata, message):
         jtalk関数を呼び出すコールバック
     """
     data = json.loads(message.payload.decode('utf-8'))
+    if not 'text' in data.keys():
+        return
     jtalk(data['text'])
 
 def main():
